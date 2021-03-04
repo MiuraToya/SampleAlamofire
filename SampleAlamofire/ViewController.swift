@@ -26,6 +26,10 @@ final class ViewController: UIViewController {
         API.call(with: keyWord) { result in
             guard let result = result else {return}
             self.repository = result.items
+            DispatchQueue.main.async {
+                self.tableView.reloadData()
+            }
+    
         }
     }
     
